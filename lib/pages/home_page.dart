@@ -8,23 +8,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home STIVE'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => LoginPage()),
-              );
-            },
-          )
-        ],
+        title: const Text("Home Page"),
+        backgroundColor: const Color(0xFF2196F3),
       ),
-      body: const Center(
-        child: Text(
-          'Selamat Datang di Aplikasi STIVE',
-          style: TextStyle(fontSize: 18),
+      body: Center(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF2196F3),
+            foregroundColor: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (_) => const LoginPage()),
+            );
+          },
+          child: const Text("Logout"),
         ),
       ),
     );
