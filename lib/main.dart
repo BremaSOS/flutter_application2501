@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'models/roster.dart';
 import 'models/task.dart';
 import 'services/notification_service.dart';
+import 'pages/home_page.dart';
 import 'pages/login_page.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initializeDateFormatting('id_ID', null);
+
+  // Status bar transparan
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+  ));
+
   // Init Hive
   await Hive.initFlutter();
   Hive.registerAdapter(RosterAdapter());
@@ -34,8 +41,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2196F3)),
         useMaterial3: true,
         fontFamily: 'Roboto',
+        scaffoldBackgroundColor: const Color(0xFFF5F7FF),
       ),
-      home: const LoginPage(),
+      // ✅ Buka SplashScreen dulu, otomatis redirect ke HomePage
+      home: const SplashScreen(),
     );
   }
 }

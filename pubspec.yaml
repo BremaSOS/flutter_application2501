@@ -15,6 +15,13 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
+  # File picker untuk import JSON
+  file_picker: ^8.0.0
+
+  # Export & share JSON
+  share_plus: ^10.0.0
+  path_provider: ^2.1.2
+
   # Notifications
   flutter_local_notifications: ^17.0.0
   timezone: ^0.9.4
